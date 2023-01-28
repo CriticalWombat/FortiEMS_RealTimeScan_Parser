@@ -1,3 +1,4 @@
 cabarchive
 zipfile
 xlsxwriter
+termcolor
