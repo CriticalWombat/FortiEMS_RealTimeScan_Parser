@@ -36,7 +36,7 @@ class FortiEMS_AV_Parser:
     def __logWrangler(self, hostname):
         log = f'{hostname}\FCDiagData\general\logs\\realtime_scan.log'
         if os.path.isfile(log):
-            with open(log, 'r') as rts:
+            with open(log, 'r' encoding="UTF-8") as rts:
                 lines = rts.readlines()
                 eventlist = []
                 for row in lines:
@@ -72,7 +72,7 @@ class FortiEMS_AV_Parser:
     def __excelOps(self, hostname, events):
         if events:
             for virus in (events):
-                self.WS.write(self.row, self.col +1, hostname)
+                self.WS.write(self.row, self.col, hostname)
                 self.WS.write(self.row, self.col +1, virus)
                 self.row +=1
 
